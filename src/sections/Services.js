@@ -26,7 +26,7 @@ export class Services {
     // Cards stagger
     gsap.from(this.cards, {
       scrollTrigger: {
-        trigger: '.services__grid',
+        trigger: '.services__grid--8',
         start: 'top 80%'
       },
       y: 60,

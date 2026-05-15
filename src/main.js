@@ -7,6 +7,7 @@ import { Cursor } from './core/Cursor.js'
 import { Navigation } from './core/Navigation.js'
 import { Hero } from './sections/Hero.js'
 import { About } from './sections/About.js'
+import { Modes } from './sections/Modes.js'
 import { Services } from './sections/Services.js'
 import { Process } from './sections/Process.js'
 import { Manifesto } from './sections/Manifesto.js'
@@ -37,10 +38,14 @@ async function init() {
   hero.reveal()
 
   new About()
+  new Modes()
   new Services()
   new Process()
   new Manifesto()
   new Contact()
+
+  // Re-bind cursor hover for any new DOM elements
+  cursor.bindHover()
 
   // 7. Camera scroll-driven animations
   setupCameraAnimation(scene)

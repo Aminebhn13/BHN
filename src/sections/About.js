@@ -7,62 +7,61 @@ export class About {
     this.section = qs('#about')
     this.title = qs('.about__title')
     this.paragraphs = qsa('.about__text p')
-    this.stats = qsa('.stat')
-    this.statNumbers = qsa('.stat__number[data-count]')
+    this.statsContainer = qs('.about__stats')
     this.init()
   }
 
   init() {
-    // Title reveal
-    gsap.from(this.title, {
-      scrollTrigger: {
-        trigger: this.title,
+    if (this.title) {
+      gsap.from(this.title, {
+        scrollTrigger: { trigger: this.title, start: 'top 80%' },
+        y: 60,
+        opacity: 0,
+        duration: 1.2,
+        ease: 'expo.out'
+      })
+    }
+
+    if (this.paragraphs.length) {
+      gsap.from(this.paragraphs, {
+        scrollTrigger: { trigger: this.paragraphs[0], start: 'top 85%' },
+        y: 30,
+        opacity: 0,
+        duration: 1,
+        ease: 'expo.out',
+        stagger: 0.15
+      })
+    }
+
+    if (this.statsContainer) {
+      ScrollTrigger.create({
+        trigger: this.statsContainer,
         start: 'top 80%',
-      },
-      y: 60,
-      opacity: 0,
-      duration: 1.2,
-      ease: 'expo.out'
-    })
-
-    // Paragraphs
-    gsap.from(this.paragraphs, {
-      scrollTrigger: {
-        trigger: this.paragraphs[0],
-        start: 'top 85%',
-      },
-      y: 30,
-      opacity: 0,
-      duration: 1,
-      ease: 'expo.out',
-      stagger: 0.15
-    })
-
-    // Stats counter
-    this.statNumbers.forEach(el => {
-      const target = parseInt(el.dataset.count)
-      const obj = { value: 0 }
-      gsap.to(obj, {
-        scrollTrigger: {
-          trigger: el,
-          start: 'top 85%',
-        },
-        value: target,
-        duration: 2,
-        ease: 'power2.out',
-        onUpdate: () => {
-          el.textContent = Math.round(obj.value).toLocaleString('fr-FR')
+        once: true,
+        onEnter: () => {
+          const countEls = qsa('[data-count]')
+          countEls.forEach(el => {
+            const target = parseInt(el.dataset.count)
+            const obj = { value: 0 }
+            gsap.to(obj, {
+              value: target,
+              duration: 2,
+              ease: 'power2.out',
+              onUpdate: () => {
+                el.textContent = Math.round(obj.value)
+              }
+            })
+          })
         }
       })
-    })
 
-    // 100% stat
-    const suffixEl = qs('.stat__number[data-suffix]')
-    if (suffixEl) {
-      gsap.from(suffixEl, {
-        scrollTrigger: { trigger: suffixEl, start: 'top 85%' },
+      gsap.from(qsa('.stat'), {
+        scrollTrigger: { trigger: this.statsContainer, start: 'top 85%' },
+        y: 30,
         opacity: 0,
-        duration: 1
+        duration: 0.8,
+        ease: 'expo.out',
+        stagger: 0.1
       })
     }
   }

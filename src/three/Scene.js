@@ -70,6 +70,14 @@ export class Scene {
     window.addEventListener('mousemove', (e) => {
       this.mouse.x = (e.clientX / this.width - 0.5) * 2
       this.mouse.y = -(e.clientY / this.height - 0.5) * 2
+
+      // Convert mouse to approximate 3D position for particle attraction
+      const vector = new THREE.Vector3(this.mouse.x, this.mouse.y, 0.5)
+      vector.unproject(this.camera)
+      const dir = vector.sub(this.camera.position).normalize()
+      const dist = -this.camera.position.z / dir.z
+      const mouse3D = this.camera.position.clone().add(dir.multiplyScalar(dist))
+      if (this.particles) this.particles.setMouse3D(mouse3D.x, mouse3D.y, mouse3D.z)
     })
   }
 
@@ -87,8 +95,8 @@ export class Scene {
     this.pointLight.position.z = Math.cos(time * 0.5) * 8
 
     // Mouse parallax on camera
-    this.camera.position.x += (this.mouse.x * 0.5 - this.camera.position.x * 0.1) * 0.02
-    this.camera.position.y += (this.mouse.y * 0.3 - this.camera.position.y * 0.05) * 0.02
+    this.camera.position.x += (this.mouse.x * 0.3 - this.camera.position.x * 0.1) * 0.03
+    this.camera.position.y += (this.mouse.y * 0.2 - this.camera.position.y * 0.05) * 0.03
 
     // Smooth lookAt
     this.cameraTargetLerped.x = lerp(this.cameraTargetLerped.x, this.cameraTarget.x, 0.05)
