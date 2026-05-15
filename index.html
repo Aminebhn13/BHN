@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>BHN-INFO — Expert Réparation Informatique Paris</title>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Manrope:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/src/style.css">
+</head>
+<body>
+
+  <!-- LOADER -->
+  <div id="loader">
+    <div class="loader__bar-container">
+      <div class="loader__bar"></div>
+    </div>
+    <div class="loader__logo">BHN<span>—</span>INFO</div>
+    <div class="loader__percent">0%</div>
+    <div class="loader__tagline">Initialisation du système...</div>
+  </div>
+
+  <!-- CURSEUR CUSTOM -->
+  <div id="cursor">
+    <div class="cursor__outer"></div>
+    <div class="cursor__inner"></div>
+    <div class="cursor__text"></div>
+  </div>
+
+  <!-- CANVAS THREE.JS -->
+  <canvas id="webgl"></canvas>
+
+  <!-- NAVIGATION -->
+  <nav id="nav">
+    <div class="nav__logo">BHN<span>—</span>INFO</div>
+    <div class="nav__links">
+      <a href="#about" data-nav>À propos</a>
+      <a href="#services" data-nav>Services</a>
+      <a href="#process" data-nav>Processus</a>
+      <a href="#contact" data-nav>Contact</a>
+    </div>
+    <div class="nav__cta">
+      <a href="mailto:contact@bhninfo.com" class="btn-outline">contact@bhninfo.com</a>
+    </div>
+  </nav>
+
+  <!-- MAIN CONTENT -->
+  <main id="smooth-wrapper">
+    <div id="smooth-content">
+
+      <!-- HERO -->
+      <section id="hero" class="section section--hero">
+        <div class="hero__eyebrow">
+          <span class="tag">Paris, France</span>
+          <span class="tag">Fondé 2024</span>
+          <span class="tag">Expert Certifié</span>
+        </div>
+        <h1 class="hero__title">
+          <span class="line">Expert</span>
+          <span class="line highlight">Réparation</span>
+          <span class="line">Informatique</span>
+        </h1>
+        <p class="hero__sub">
+          Diagnostic. Réparation. Optimisation.<br>
+          Votre équipement entre les meilleures mains à Paris.
+        </p>
+        <div class="hero__scroll-cue">
+          <span>Découvrir</span>
+          <div class="scroll-line"></div>
+        </div>
+        <div class="hero__coords">
+          <span>48°52'N</span>
+          <span>2°18'E</span>
+        </div>
+      </section>
+
+      <!-- ABOUT -->
+      <section id="about" class="section section--about">
+        <div class="about__number">01</div>
+        <div class="about__content">
+          <h2 class="about__title">
+            Nous sommes<br>
+            <em>BHN-INFO</em>
+          </h2>
+          <div class="about__text">
+            <p>Fondée en 2024 au cœur du 8ème arrondissement de Paris, BHN-INFO s'est rapidement imposée comme un acteur de référence dans la réparation d'ordinateurs et d'équipements périphériques.</p>
+            <p>Notre approche : diagnostiquer vite, réparer bien, livrer propre. Chaque intervention est traitée avec la même exigence technique, que vous soyez particulier ou professionnel.</p>
+          </div>
+          <div class="about__stats">
+            <div class="stat">
+              <span class="stat__number" data-count="2024">0</span>
+              <span class="stat__label">Année de création</span>
+            </div>
+            <div class="stat">
+              <span class="stat__number" data-count="5">0</span>
+              <span class="stat__label">Services proposés</span>
+            </div>
+            <div class="stat">
+              <span class="stat__number" data-count="75008">0</span>
+              <span class="stat__label">Code postal Paris</span>
+            </div>
+            <div class="stat">
+              <span class="stat__number" data-suffix="%">100</span>
+              <span class="stat__label">Satisfaction client</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SERVICES -->
+      <section id="services" class="section section--services">
+        <div class="services__header">
+          <span class="section-number">02</span>
+          <h2 class="services__title">Nos Services</h2>
+          <p class="services__intro">Cinq expertises, une seule promesse : ça marche.</p>
+        </div>
+        <div class="services__grid">
+          <div class="service-card" data-index="01">
+            <div class="service-card__icon">
+              <svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="5" y="10" width="50" height="32" rx="3" stroke="currentColor" stroke-width="2"/>
+                <path d="M0 45h60" stroke="currentColor" stroke-width="2"/>
+                <rect x="22" y="45" width="16" height="4" rx="1" fill="currentColor"/>
+              </svg>
+            </div>
+            <div class="service-card__number">01</div>
+            <h3 class="service-card__title">Réparation<br>Ordinateurs</h3>
+            <p class="service-card__desc">Bureau &amp; portables. Pannes matérielles et logicielles. Cartes mères, écrans, connectique.</p>
+            <div class="service-card__arrow">→</div>
+          </div>
+          <div class="service-card" data-index="02">
+            <div class="service-card__icon">
+              <svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="10" y="20" width="40" height="25" rx="2" stroke="currentColor" stroke-width="2"/>
+                <rect x="16" y="8" width="28" height="14" rx="1" stroke="currentColor" stroke-width="2"/>
+                <rect x="16" y="34" width="28" height="14" rx="1" stroke="currentColor" stroke-width="2"/>
+                <circle cx="44" cy="30" r="2" fill="currentColor"/>
+              </svg>
+            </div>
+            <div class="service-card__number">02</div>
+            <h3 class="service-card__title">Équipements<br>Périphériques</h3>
+            <p class="service-card__desc">Imprimantes, scanners, moniteurs. Diagnostic complet, pièces d'origine.</p>
+            <div class="service-card__arrow">→</div>
+          </div>
+          <div class="service-card" data-index="03">
+            <div class="service-card__icon">
+              <svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="8" y="18" width="44" height="24" rx="4" stroke="currentColor" stroke-width="2"/>
+                <circle cx="44" cy="30" r="5" stroke="currentColor" stroke-width="2"/>
+                <line x1="16" y1="26" x2="32" y2="26" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                <line x1="16" y1="34" x2="28" y2="34" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+              </svg>
+            </div>
+            <div class="service-card__number">03</div>
+            <h3 class="service-card__title">Récupération<br>de Données</h3>
+            <p class="service-card__desc">Vos données sont précieuses. Récupération d'urgence sur tout type de support défaillant.</p>
+            <div class="service-card__arrow">→</div>
+          </div>
+          <div class="service-card" data-index="04">
+            <div class="service-card__icon">
+              <svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="30" cy="12" r="6" stroke="currentColor" stroke-width="2"/>
+                <circle cx="12" cy="46" r="6" stroke="currentColor" stroke-width="2"/>
+                <circle cx="48" cy="46" r="6" stroke="currentColor" stroke-width="2"/>
+                <line x1="30" y1="18" x2="12" y2="40" stroke="currentColor" stroke-width="2"/>
+                <line x1="30" y1="18" x2="48" y2="40" stroke="currentColor" stroke-width="2"/>
+                <line x1="18" y1="46" x2="42" y2="46" stroke="currentColor" stroke-width="2"/>
+              </svg>
+            </div>
+            <div class="service-card__number">04</div>
+            <h3 class="service-card__title">Installation &amp;<br>Configuration</h3>
+            <p class="service-card__desc">Déploiement de systèmes, configuration réseau, installation logiciels. Clé en main.</p>
+            <div class="service-card__arrow">→</div>
+          </div>
+          <div class="service-card service-card--wide" data-index="05">
+            <div class="service-card__icon">
+              <svg viewBox="0 0 60 60" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <circle cx="30" cy="22" r="12" stroke="currentColor" stroke-width="2"/>
+                <path d="M30 34v8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                <path d="M18 50h24" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                <path d="M27 19l3 3 5-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+            </div>
+            <div class="service-card__number">05</div>
+            <h3 class="service-card__title">Conseil &amp;<br>Accompagnement</h3>
+            <p class="service-card__desc">Audit de votre parc informatique, conseil stratégique, solutions sur mesure pour vos projets spécifiques.</p>
+            <div class="service-card__arrow">→</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PROCESSUS -->
+      <section id="process" class="section section--process">
+        <div class="process__header">
+          <span class="section-number">03</span>
+          <h2 class="process__title">Comment ça marche</h2>
+        </div>
+        <div class="process__timeline">
+          <div class="process__line">
+            <div class="process__line-fill"></div>
+          </div>
+          <div class="process__steps">
+            <div class="step" data-step="1">
+              <div class="step__dot"></div>
+              <div class="step__content">
+                <span class="step__num">01</span>
+                <h3 class="step__title">Contact &amp; Diagnostic</h3>
+                <p class="step__desc">Décrivez votre problème par email ou en direct. Diagnostic initial gratuit sous 24h.</p>
+              </div>
+            </div>
+            <div class="step" data-step="2">
+              <div class="step__dot"></div>
+              <div class="step__content">
+                <span class="step__num">02</span>
+                <h3 class="step__title">Analyse &amp; Devis</h3>
+                <p class="step__desc">Inspection complète de l'équipement. Devis transparent, sans surprise, validé avant intervention.</p>
+              </div>
+            </div>
+            <div class="step" data-step="3">
+              <div class="step__dot"></div>
+              <div class="step__content">
+                <span class="step__num">03</span>
+                <h3 class="step__title">Réparation Expert</h3>
+                <p class="step__desc">Intervention par nos techniciens qualifiés. Pièces d'origine. Délai optimisé.</p>
+              </div>
+            </div>
+            <div class="step" data-step="4">
+              <div class="step__dot"></div>
+              <div class="step__content">
+                <span class="step__num">04</span>
+                <h3 class="step__title">Livraison &amp; Garantie</h3>
+                <p class="step__desc">Tests complets avant remise. Garantie sur la réparation. Vous repartez serein.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- MANIFESTO -->
+      <section id="manifesto" class="section section--manifesto">
+        <div class="manifesto__track">
+          <div class="manifesto__inner">
+            <span>Rapidité</span><span class="sep">·</span>
+            <span>Expertise</span><span class="sep">·</span>
+            <span>Transparence</span><span class="sep">·</span>
+            <span>Paris 8ème</span><span class="sep">·</span>
+            <span>Fiabilité</span><span class="sep">·</span>
+            <span>Garantie</span><span class="sep">·</span>
+            <span>Confiance</span><span class="sep">·</span>
+            <span>Rapidité</span><span class="sep">·</span>
+            <span>Expertise</span><span class="sep">·</span>
+            <span>Transparence</span><span class="sep">·</span>
+            <span>Paris 8ème</span><span class="sep">·</span>
+            <span>Fiabilité</span><span class="sep">·</span>
+            <span>Garantie</span><span class="sep">·</span>
+            <span>Confiance</span><span class="sep">·</span>
+            <span>Rapidité</span><span class="sep">·</span>
+            <span>Expertise</span><span class="sep">·</span>
+            <span>Transparence</span><span class="sep">·</span>
+            <span>Paris 8ème</span><span class="sep">·</span>
+            <span>Fiabilité</span><span class="sep">·</span>
+            <span>Garantie</span><span class="sep">·</span>
+            <span>Confiance</span><span class="sep">·</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- CONTACT -->
+      <section id="contact" class="section section--contact">
+        <div class="contact__number">04</div>
+        <div class="contact__content">
+          <h2 class="contact__title">
+            Parlons de<br>
+            <em>votre projet</em>
+          </h2>
+          <div class="contact__form-wrap">
+            <form class="contact__form" action="https://formspree.io/f/xdkoveyl" method="POST">
+              <div class="field">
+                <label for="name">Nom</label>
+                <input type="text" id="name" name="name" placeholder="Votre nom" required>
+                <div class="field__line"></div>
+              </div>
+              <div class="field">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" placeholder="votre@email.com" required>
+                <div class="field__line"></div>
+              </div>
+              <div class="field">
+                <label for="message">Décrivez votre problème</label>
+                <textarea id="message" name="message" rows="4" placeholder="Mon ordinateur ne s'allume plus..."></textarea>
+                <div class="field__line"></div>
+              </div>
+              <button type="submit" class="btn-submit">
+                <span>Envoyer le message</span>
+                <div class="btn-submit__arrow">→</div>
+              </button>
+            </form>
+          </div>
+          <div class="contact__info">
+            <div class="contact__address">
+              <span class="label">Adresse</span>
+              <span>60 rue François 1er<br>75008 Paris, France</span>
+            </div>
+            <div class="contact__email">
+              <span class="label">Email</span>
+              <a href="mailto:contact@bhninfo.com">contact@bhninfo.com</a>
+            </div>
+            <div class="contact__siren">
+              <span class="label">SIREN</span>
+              <span>934 255 365</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer id="footer">
+    <div class="footer__left">
+      <span class="footer__logo">BHN<span>—</span>INFO</span>
+      <span class="footer__copy">© 2024 BHN-INFO. Tous droits réservés.</span>
+    </div>
+    <div class="footer__right">
+      <span>Paris, France</span>
+      <span>934 255 365</span>
+    </div>
+  </footer>
+
+  <script type="module" src="/src/main.js"></script>
+</body>
+</html>
